@@ -5,7 +5,7 @@ FROM ubuntu:bionic as ueransim-builder
 
 RUN apt-get update -y && apt-get upgrade -y &&\
     apt install -y make gcc g++ libsctp-dev lksctp-tools\
-    iproute2 wget software-properties-common
+    iproute2 wget software-properties-common git
 
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null\
     | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null\
@@ -14,7 +14,8 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     
 RUN cmake --version
 
-COPY . /UERANSIM
+RUN git clone https://github.com/aligungr/UERANSIM.git && cd UERANSIM && git checkout -f v3.2.5
+COPY docker/ /UERANSIM/docker/
 
 RUN make -C UERANSIM
 
