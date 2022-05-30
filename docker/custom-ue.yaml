@@ -41,8 +41,8 @@ sessions:
   - type: '@PDU_TYPE@'
     apn: '@APN@'
     slice:
-      sst: @SST@
-      sd: @SD@
+      sst: @SST_R@
+      sd: @SD_R@
 
 # Configured NSSAI for this UE by HPLMN
 configured-nssai:

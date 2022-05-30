@@ -6,6 +6,9 @@ CONFIG_DIR="/ueransim/etc"
 
 # Default values
 USE_FQDN=${USE_FQDN:-no}
+SST_R=${SST_R:-$SST}
+SD_R=${SD_R:-$SD}
+
 
 if [[ ${USE_FQDN} == "yes" ]];then
     NGAPPeerAddr=(`getent hosts $AMF_FQDN | awk '{print $1}'`)
