@@ -41,7 +41,7 @@ echo "Done setting the configuration"
 echo "### Running ueransim ###"
 
 echo "Running gnb"
-/ueransim/bin/nr-gnb -c /ueransim/etc/custom-gnb.yaml &
+/ueransim/bin/nr-gnb -c /ueransim/etc/custom-gnb.yaml --log-level debug &
 
 sleep 1
 echo "Running ue"
